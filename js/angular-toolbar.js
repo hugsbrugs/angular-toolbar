@@ -3,7 +3,10 @@ angular.module('angular-toolbar', ['angular-toolbar-templates', 'angular-toolbar
 angular.module('angular-toolbar-templates', ['template/angular-toolbar/toolbtn.html', 'template/angular-toolbar/toolbar.html']);
 
 angular.module('angular-toolbar-directives', [])
-
+    
+    /**
+     * http://benclinkinbeard.com/posts/creating-configurable-angular-directives-with-providers/
+     */
     .provider('toolbarConfig', [function () {
 
         this.config = function (config) {
