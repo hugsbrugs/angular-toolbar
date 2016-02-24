@@ -1,0 +1,23 @@
+{
+  "name": "angular-toolbar",
+  "version": "1.0.0",
+  "description": "Angular toolbar can display toolbar on top,right,left,bottom with bunch of options.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/hugsbrugs/angular-toolbar.git"
+  },
+  "keywords": [
+    "angularjs",
+    "toolbar"
+  ],
+  "author": "Hugo Maugey",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/hugsbrugs/angular-toolbar#readme"
+}
