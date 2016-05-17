@@ -16,7 +16,11 @@
     <!-- ANGULAR TOOLBAR CSS -->
     <link href="../css/angular-toolbar.css" rel="stylesheet">
 
-
+    <style type="text/css">
+        .row{
+            margin-top:20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,7 +112,7 @@
                             <!-- BAR ANIMATION -->
                             <div class="col-xs-12 col-sm-4">
                                 <label>Animation:</label>
-                                <select ng-model="mytoolbar1.animation" class="form-control">
+                                <select ng-model="mytoolbtn1.toolbar.animation" class="form-control">
                                     <!-- <option value="flip" selected>flip</option> -->
                                     <option value="animate-standard">animate-standard</option>
                                     <option value="animate-flyin">animate-flyin</option>
@@ -120,7 +124,7 @@
                             <!-- BAR POSITION -->
                             <div class="col-xs-12 col-sm-4">
                                 <label>Position:</label>
-                                <select ng-model="mytoolbar1.position" class="form-control">
+                                <select ng-model="mytoolbtn1.toolbar.position" class="form-control">
                                     <option value="right">right</option>
                                     <option value="left">left</option>
                                     <option value="top">top</option>
@@ -130,7 +134,7 @@
                             <!-- BAR SIZE -->
                             <div class="col-xs-12 col-sm-4">
                                 <label>Bar Size:</label>
-                                <select ng-model="mytoolbar1.size" class="form-control">
+                                <select ng-model="mytoolbtn1.toolbar.size" class="form-control">
                                     <option value="btn-lg">Large</option>
                                     <option value="">Default</option>
                                     <option value="btn-sm">Small</option>
@@ -140,14 +144,28 @@
                             <!-- BAR ALIGNMENT -->
                             <div class="col-xs-12 col-sm-4">
                                 <label>Bar Alignment:</label>
-                                <select ng-model="mytoolbar1.alignment" class="form-control">
+                                <select ng-model="mytoolbtn1.toolbar.alignment" class="form-control">
                                     <option value="normal">normal</option>
                                     <option value="angle">angle</option>
                                 </select>
                             </div>
                         </div>
+                        <div class="row">
+                            Tools:<br>
+                            <div class="col-xs-12 col-sm-4">
+                                <button type="button" class="btn" ng-click="add_item()">Add Item</button>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <button type="button" class="btn" ng-click="remove_item()">Delete Item</button>
+                            </div>
+                        </div>
 
                     </fieldset>
+
+                    <!-- <fieldset style="margin-top:100px;">
+                        <legend>Config:</legend>
+                        <pre>{{toolbox | json}}</pre>
+                    </fieldset> -->
 
                 </div>
             </div>
@@ -163,13 +181,8 @@
                     <div class="col-sm-12 text-center">
                         
                         <toolbtn
-                            ng-model="mytoolbtn1"
-                            size="btn-sm">
+                            ng-model="mytoolbtn1">
                         </toolbtn>
-                        <toolbar ng-model="mytoolbar1">
-                            <toolbarbtn ng-model="mytoolbarbtn1"></toolbarbtn>
-                            <toolbarbtn ng-model="mytoolbarbtn2"></toolbarbtn>
-                        </toolbar>
                         
                     </div>
                 </div>
@@ -198,47 +211,45 @@ angular.module('myApp.ToolbarControllers', [])
         'event' : 'mouseover',
         'size' : 'btn-lg',
         'icon' : 'fa fa-times',
+        'toolbar' : {
+            'bid' : 'example-1',
+            'position' : 'bottom',
+            'animation' : 'animate-flip',
+            'size' : 'btn-lg',
+            'alignment' : 'normal',
+            'adjustment' : 10,
+            'tools' : [
+                {icon : "fa fa-plus", bstyle : "btn-primary", click : "doSomething('tata 1')"},
+                {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('tata 2')"},
+                {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('{{var_chelou.yoyo}}')"},
+            ]
+        }
     };
-
-    $scope.mytoolbar1 = {
-        'bid' : 'example-1',
-        'position' : 'bottom',
-        'animation' : 'animate-flip',
-        'size' : 'btn-lg',
-        'alignment' : 'normal',
-        'adjustment' : 10,
-        'tools' : [
-            {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"},
-            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"},
-            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('{{var_chelou.yoyo}}')"},
-        ]
-    };
-    $scope.mytoolbarbtn1 = {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"};
-    $scope.mytoolbarbtn2 = {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"};
-
 
     $scope.var_chelou = {
         yoyo : 'tata la pute'
     };
 
-    $scope.doSomething = function() {
-         alert('doSomething');   
+    $scope.doSomething = function(msg) {
+         alert('doSomething : ' + msg);   
     };
-    
-    $scope.myFirstFunction = function(msg) {
-         alert(msg + '!!! first function call!');   
+
+    $scope.add_item = function()
+    {
+        $scope.mytoolbtn1.toolbar.tools.push({icon : "fa fa-plus", style : "btn-primary", click : "doSomething('tata 1')"});
     };
-    
-    $scope.mySecondFunction = function(msg) {
-         alert(msg + '!!! second function call!');   
+
+    $scope.remove_item = function()
+    {
+        $scope.mytoolbtn1.toolbar.tools.splice(0,1);
     };
 
 }])
 
 
 var myApp = angular.module('myApp', [
-    'angular-toolbar',
-    'myApp.ToolbarControllers',
+'angular-toolbar',
+'myApp.ToolbarControllers',
 ]);
 </script>
 

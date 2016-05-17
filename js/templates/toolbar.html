@@ -1,0 +1,13 @@
+<div
+	id="toolbar-{{ctrl.bid}}"
+	class="tool-container tool-{{ctrl.position}} toolbar-info-o"
+	style="position:absolute;width:auto;right:auto;opacity:0;">
+    <div class="{{ctrl.btn_group}}">
+        <toolbarbtn
+            ng-repeat="(key, tool) in ctrl.tools track by $index"
+            ng-model="tool">
+        </toolbarbtn>
+        <span ng-transclude-replace></span>
+    </div>
+    <div class="arrow" ng-class="{{ctrl.arrow_top}}"></div>
+</div>

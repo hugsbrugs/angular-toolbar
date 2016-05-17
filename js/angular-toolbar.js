@@ -1,7 +1,17 @@
+// Define module 'angular-toolbar'
+angular.module('angular-toolbar', [
+    'angular-toolbar-templates', 
+    'angular-toolbar-directives'
+])
 
-angular.module('angular-toolbar', ['angular-toolbar-templates', 'angular-toolbar-directives'])
-angular.module('angular-toolbar-templates', ['template/angular-toolbar/toolbtn.html', 'template/angular-toolbar/toolbar.html']);
+angular.module('angular-toolbar-templates', [
+    'template/angular-toolbar/toolbtn.html', 
+    'template/angular-toolbar/toolbar.html'
+]);
 
+/**
+ *
+ */
 angular.module('angular-toolbar-directives', [])
     
     /**
@@ -25,7 +35,7 @@ angular.module('angular-toolbar-directives', [])
     .directive('toolbar', ['$compile', '$document', '$timeout', '$templateCache', '$interpolate',
     function ($compile, $document, $timeout, $templateCache, $interpolate) {
         return {
-            restrict: 'E',
+            restrict: 'AE',
             // scope : {
             //     position : '@',
             //     style : '@',
@@ -167,7 +177,7 @@ angular.module('angular-toolbar-directives', [])
                     {
                         //console.log('mouseenter');
                         close_after_1s = false;
-                        toolbox.unbind('mouseenter');
+                        element.unbind('mouseenter');
                     });
 
                     // wait 1 second and check if mouse is over toolbox
@@ -194,7 +204,7 @@ angular.module('angular-toolbar-directives', [])
 
               
                 // Watch for event change
-                /*attrs.$observe('event', function(new_event)
+                attrs.$observe('event', function(new_event)
                 {
                     // De-register old listeners                    
                     if(scope.toolbtn_event==='click')
@@ -203,59 +213,37 @@ angular.module('angular-toolbar-directives', [])
                     }
                     if(scope.toolbtn_event==='mouseover')
                     {
-                        element.bind('mouseover');
+                        element.unbind('mouseover');
                         element.unbind('mouseleave');
-                        // toolbox.unbind('mouseenter');
-                        // toolbox.unbind('mouseleave');
                     }
                     // Set new var
                     scope.toolbtn_event = attrs.event || 'mouseover';
                     // register new events
                     scope.handle_event();
-                });*/
+                });
                 // Watch for style change
                 attrs.$observe('style', function(new_style)
                 {
                     if(new_style)
                     {
-                        // console.log('UPDATE STYLE : ' + new_style);
-                        // scope.build_toolbar_button();
                         scope.toolbar_style = scope.get_toolbar_style();
                     }
                 });
-
                 // Watch for position change
                 attrs.$observe('position', function(new_position)
                 {
                     if(new_position)
                     {
-                        // console.log('UPDATE POSITION : ' + new_position);
-                        // scope.build_toolbar_button();
-                        // if(attrs.position==='top' || attrs.position==='bottom' )
-                        // {
-                        //     scope.arrow_top = true;
-                        //     scope.toolbar_btn_group = 'btn-group';
-                        // }
-                        // else
-                        // {
-                        //     scope.arrow_top = false;
-                        //     scope.toolbar_btn_group = 'btn-group-vertical';
-                        // }
-
                         scope.get_toolbar_btn_group();
-
                         scope.toolbar_position = attrs.position || 'top';
-
                         scope.positionToolbar();
                     }
                 });
+                // Watch for barAlign change
                 attrs.$observe('barAlign', function(new_align)
                 {
-                    console.log('UPDATE barAlign : ' + new_align);
                     if(new_align)
                     {
-                        
-
                         scope.toolbar_align = attrs.barAlign || 'normal';
                         scope.get_toolbar_btn_group();
                         scope.positionToolbar();
@@ -267,7 +255,6 @@ angular.module('angular-toolbar-directives', [])
                 {
                     if(new_icon)
                     {
-                        // console.log('UPDATE ICON : ' + new_icon);
                         scope.toolbar_icon = attrs.icon || 'fa fa-question-circle';
                     }
                 });
@@ -275,21 +262,17 @@ angular.module('angular-toolbar-directives', [])
                 attrs.$observe('size', function(new_size)
                 {
                     scope.toolbtn_size = attrs.size || '';
-                    //console.log('UPDATE SIZE : ' + scope.toolbtn_size + ' | ' + new_size);
                 });
                 // Watch for size change
                 attrs.$observe('barSize', function(new_size)
                 {
-                    //scope.toolbtn_size = attrs.size || '';
                     scope.toolbar_size = attrs.barSize || '';
-                    //console.log('UPDATE SIZE : ' + new_size);
                     scope.build_toolbar();
                 });
                 // Watch for animation change
                 attrs.$observe('animation', function(new_animation)
                 {
                     scope.toolbar_animation = attrs.animation || 'animate-flip';
-                    console.log('UPDATE ANIMATION : ' + new_animation);
                     scope.build_toolbar();
                 });
 
