@@ -1,6 +1,6 @@
 [Visit Demo on Github Pages](https://hugsbrugs.github.com/angular-toolbar)
 
-![alt text](https://github.com/hugsbrugs/angular-toolbar/img/angular-toolbar.png "Angular Toolbar Example")
+![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar.png "Angular Toolbar Example")
 
 Build by [Hugo Maugey](https://hugo.maugey.fr "Webmaster Creation Site Web")
 
