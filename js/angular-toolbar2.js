@@ -1,13 +1,7 @@
 // Define module 'angular-toolbar'
 angular.module('angular-toolbar', [
-    //'angular-toolbar-templates', 
     'angular-toolbar-directives'
 ])
-
-// angular.module('angular-toolbar-templates', [
-//     'template/angular-toolbar/toolbtn.html', 
-//     'template/angular-toolbar/toolbar.html'
-// ]);
 
 /**
  *

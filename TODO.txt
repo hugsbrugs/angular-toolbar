@@ -1,0 +1,6 @@
+http://stackoverflow.com/questions/25900488/unbind-an-angular-element<br>
+$scope.$on('$destroy', cleanUp);
+Mouse<br>
+http://www.angularjshub.com/examples/eventhandlers/mouseevents/<br>
+Attribute bindings<br>
+https://gist.github.com/CMCDragonkai/6282750<br>

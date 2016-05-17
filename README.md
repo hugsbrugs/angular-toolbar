@@ -1,33 +1,46 @@
 inspired from paulkinzett.github.io/toolbar/
 
 ##This module can be used as element or attribute
+```html
 <div toolbar></div>
 <toolbar></toolbar>
+```
 
-##Attributes can be passed throught ng-model 
+##Attributes can be passed throught ng-model
+
+```html
 <toolbar ng-model="my_toolbar"></toolbar>
+```
+```javascript
 $scope.my_toolbar = {
-	'position' : 'bottom',
-    'style' : 'btn-danger',
-    'animation' : 'animate-flip',
-    'event' : 'click',
+	'bid' : 'example-1',
+    'bstyle' : 'btn-danger',
+    'event' : 'mouseover',
+    'size' : 'btn-lg',
     'icon' : 'fa fa-times',
-    'size' : '',
-    'bar_size' : 'btn-lg',
-    'bar_alignment' : 'normal',
-    'adjustment' : 10,
-    'tools' : [
-        {icon : "fa fa-plus", style : "btn-primary", click : "myFirstFunction('tata 1')"},
-        {icon : "fa fa-times", style : "btn-danger", click : "mySecondFunction('tata 2')"},
-        {icon : "fa fa-times", style : "btn-danger", click : "mySecondFunction('{{var_chelou.yoyo}}')"},//{{var_chelou.yoyo}}
-    ]
+    'toolbar' : {
+        'bid' : 'example-1',
+        'position' : 'bottom',
+        'animation' : 'animate-flip',
+        'size' : 'btn-lg',
+        'alignment' : 'normal',
+        'adjustment' : 10,
+        'tools' : [
+            {icon : "fa fa-plus", bstyle : "btn-primary", click : "doSomething('tata 1')"},
+            {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('tata 2')"},
+            {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('{{var_chelou.yoyo}}')"},
+        ]
+    }
 }
+```
 
-or via attributes
+or via HTML data attributes
 
+
+```html
 <toolbar 
-	ng-model="my_toolbar"
-	icon="{{toolbox.icon}}" 
+    ng-model="my_toolbar"
+    icon="{{toolbox.icon}}" 
     size="{{toolbox.size}}" 
     bar-size="{{toolbox.bar_size}}" 
     position="{{toolbox.position}}" 
@@ -38,12 +51,49 @@ or via attributes
     adjustment="10" 
     tools="{{toolbox.tools}}"
 >
-	<toolbtn
-		icon="fa fa-code-fork"
-		style="btn-success"
-		click="myFirstFunction({{var_chelou.yoyo}})"></toolbtn>
-	<toolbtn
-		icon="fa fa-code-fork"
-		style="btn-danger"
-		click="mySeconfFunction({{var_chelou.yoyo}})"></toolbtn>
+    <toolbtn
+        icon="fa fa-code-fork"
+        style="btn-success"
+        click="myFirstFunction({{var_chelou.yoyo}})"></toolbtn>
+    <toolbtn
+        icon="fa fa-code-fork"
+        style="btn-danger"
+        click="mySeconfFunction({{var_chelou.yoyo}})"></toolbtn>
 </toolbar>
+```
+
+or through a mix
+
+```html
+<toolbtn
+    ng-model="mytoolbtn1">
+</toolbtn>
+<toolbar ng-model="mytoolbar1">
+    <toolbarbtn ng-model="mytoolbarbtn1"></toolbarbtn>
+    <toolbarbtn ng-model="mytoolbarbtn2"></toolbarbtn>
+    <toolbarbtn ng-model="mytoolbarbtn3"></toolbarbtn>
+</toolbar>
+```
+```javascript
+scope.mytoolbtn1 = {
+    'bid' : 'example-1',
+    'bstyle' : 'btn-danger',
+    'event' : 'mouseover',
+    'size' : 'btn-lg',
+    'icon' : 'fa fa-times',
+};
+
+$scope.mytoolbar1 = {
+    'bid' : 'example-1',
+    'position' : 'bottom',
+    'animation' : 'animate-flip',
+    'size' : 'btn-lg',
+    'alignment' : 'normal',
+    'adjustment' : 10,
+    'tools' : []
+};
+$scope.mytoolbarbtn1 = {icon : "fa fa-plus", bstyle : "btn-primary", click : "doSomething('tata 1')"};
+$scope.mytoolbarbtn2 = {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('tata 2')"};
+$scope.mytoolbarbtn3 = {icon : "fa fa-times", bstyle : "btn-warning", click : "doSomething('{{some_variable.some_property}}')"};
+```
+
