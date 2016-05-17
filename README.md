@@ -1,8 +1,6 @@
 [Visit Demo on Github Pages](https://hugsbrugs.github.com/angular-toolbar)
 
-![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar.png "Angular Toolbar Example")
-
-Build by [Hugo Maugey](https://hugo.maugey.fr "Webmaster Creation Site Web")
+![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar.png "Angular Toolbar Example") ![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar-2.png "Angular Toolbar Example") ![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar-3.png "Angular Toolbar Example")
 
 ## Install
 
@@ -105,3 +103,6 @@ $scope.mytoolbarbtn2 = {icon : "fa fa-times", bstyle : "btn-danger", click : "do
 $scope.mytoolbarbtn3 = {icon : "fa fa-times", bstyle : "btn-warning", click : "doSomething('{{some_variable.some_property}}')"};
 ```
 
+## Contributors
+
+Build by [Hugo Maugey](https://hugo.maugey.fr "Webmaster Creation Site Web")
