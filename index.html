@@ -5,16 +5,18 @@
     <meta charset="UTF-8" />
     
     <title>angular-toolbar</title>
+
     <link rel="shortcut icon" href="/favicon.ico">
+
     <!-- FONT AWESOME -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- ANGULAR TOOLBAR CSS -->
+    <link href="dist/angular-toolbar.min.css" rel="stylesheet">
+
     <!-- ANGULAR -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-    <!-- ANGULAR TOOLBAR CSS -->
-    <link href="../dist/angular-toolbar.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -175,16 +177,16 @@
         <p>Examples</p>
         <ul>
             <li><a href="index.html">Basic</a></li>
-            <li><a href="simple-model.html">Simple Model</a></li>
-            <li><a href="simple-markup.html">Simple Markup</a></li>
-            <li><a href="multiple-box.html">Multipe Boxes</a></li>
+            <li><a href="/examples/simple-model.html">Simple Model</a></li>
+            <li><a href="/examples/simple-markup.html">Simple Markup</a></li>
+            <li><a href="/examples/multiple-box.html">Multipe Boxes</a></li>
         </ul>
     </div>
 </div>
 
 
 <!-- SCRIPTS -->
-<script src="../dist/angular-toolbar.min.js"></script>
+<script src="dist/angular-toolbar.min.js"></script>
 
 <script>
 angular.module('myApp.ToolbarControllers', [])
@@ -199,7 +201,7 @@ angular.module('myApp.ToolbarControllers', [])
         'bstyle' : 'btn-danger',
         'event' : 'mouseover',
         'size' : 'btn-lg',
-        'icon' : 'fa fa-times',
+        'icon' : 'fa fa-code-fork',
     };
 
     $scope.mytoolbar1 = {
@@ -210,9 +212,9 @@ angular.module('myApp.ToolbarControllers', [])
         'alignment' : 'normal',
         'adjustment' : 10,
         'tools' : [
-            {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"},
-            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"},
-            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('{{var_chelou.yoyo}}')"},
+            {icon : "fa fa-html5", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"},
+            {icon : "fa fa-code", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"},
+            {icon : "fa fa-css3", bstyle : "btn-danger", click : "mySecondFunction('{{var_chelou.yoyo}}')"},
         ]
     };
     $scope.mytoolbarbtn1 = {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"};
