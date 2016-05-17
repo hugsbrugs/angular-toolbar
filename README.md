@@ -2,9 +2,32 @@
 
 ![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar.png "Angular Toolbar Example") ![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar-2.png "Angular Toolbar Example") ![alt text](https://raw.githubusercontent.com/hugsbrugs/angular-toolbar/master/img/angular-toolbar-3.png "Angular Toolbar Example")
 
+
+## Dependencies
+
+This module depends on :
+- Twitter bootstrap CSS
+- AngularJS
+- Font awesome
+
 ## Install
 
-
+Download library or install it through bower
+```
+bower install angular-toolbar --save
+```
+Call CSS abd JS scripts in your HTML
+```html
+<link href="/bower_components/angular-toolbar/dist/angular-toolbar.min.css" rel="stylesheet">
+<script src="/bower_components/angular-toolbar/dist/angular-toolbar.min.js"></script>
+```
+And load module in your angular app
+```javascript
+var myApp = angular.module('myApp', [
+    'angular-toolbar',
+    ...
+]);
+```
 
 ##This module can be used as element or attribute
 ```html

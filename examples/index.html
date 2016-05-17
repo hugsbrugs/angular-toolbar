@@ -14,25 +14,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
     <!-- ANGULAR TOOLBAR CSS -->
-    <link href="../css/angular-toolbar.css" rel="stylesheet">
-
-    <style type="text/css">
-        .row{
-            margin-top:20px;
-        }
-    </style>
+    <link href="../dist/angular-toolbar.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- TITLE -->
 <div class="container">
-
     <div class="row">
         <h1 class="text-center">Angular Toolbar</h1>
         <h5 class="text-center">Build by <a href="http://hugo.maugey.fr" target="_blank">Hugo Maugey</a></h5>
     </div>
-
 </div>
 
 
@@ -44,13 +35,6 @@
     	    <p>Inspired from - <a href="https://paulkinzett.github.io/toolbar/"><i class="fa fa-bicycle"></i> Toolbar.js</a>.</p>
     	    <p>Play on - <a href="http://codepen.io/hugsbrugs/pen/xGMjZx?editors=101"><i class="fa fa-codepen"></i> Codepen</a></p>
         </div>
-        <!-- http://stackoverflow.com/questions/25900488/unbind-an-angular-element<br>
-        $scope.$on('$destroy', cleanUp);
-        Mouse<br>
-        http://www.angularjshub.com/examples/eventhandlers/mouseevents/<br>
-        Attribute bindings<br>
-        https://gist.github.com/CMCDragonkai/6282750<br> -->
-
     </div>
 
     
@@ -153,11 +137,6 @@
 
                     </fieldset>
 
-                    <!-- <fieldset style="margin-top:100px;">
-                        <legend>Config:</legend>
-                        <pre>{{toolbox | json}}</pre>
-                    </fieldset> -->
-
                 </div>
             </div>
         </div>
@@ -168,18 +147,18 @@
             <fieldset>
                 <legend>Example is updated live:</legend>
                 <!-- DYNAMIC TOOLBOX -->
-                <div class="row" style="margin-top:20px;">
+                <div class="row" style="margin-top:100px;">
                     <div class="col-sm-12 text-center">
                         
                         <toolbtn
-                            ng-model="mytoolbtn1">
+                            ng-model="mytoolbtn1"
+                            size="btn-sm">
                         </toolbtn>
                         <toolbar ng-model="mytoolbar1">
                             <toolbarbtn ng-model="mytoolbarbtn1"></toolbarbtn>
                             <toolbarbtn ng-model="mytoolbarbtn2"></toolbarbtn>
-                            <toolbarbtn ng-model="mytoolbarbtn3"></toolbarbtn>
                         </toolbar>
-
+                        
                     </div>
                 </div>
             </fieldset>
@@ -191,8 +170,22 @@
 
 </div>
 
+<div class="container">
+    <div class="row">
+        <p>Examples</p>
+        <ul>
+            <li><a href="index.html">Basic</a></li>
+            <li><a href="simple-model.html">Simple Model</a></li>
+            <li><a href="simple-markup.html">Simple Markup</a></li>
+            <li><a href="multiple-box.html">Multipe Boxes</a></li>
+        </ul>
+    </div>
+</div>
+
+
 <!-- SCRIPTS -->
-<script src="../js/angular-toolbar2.js"></script>
+<script src="../dist/angular-toolbar.min.js"></script>
+
 <script>
 angular.module('myApp.ToolbarControllers', [])
 
@@ -216,27 +209,38 @@ angular.module('myApp.ToolbarControllers', [])
         'size' : 'btn-lg',
         'alignment' : 'normal',
         'adjustment' : 10,
-        'tools' : []
+        'tools' : [
+            {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"},
+            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"},
+            {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('{{var_chelou.yoyo}}')"},
+        ]
     };
-    $scope.mytoolbarbtn1 = {icon : "fa fa-plus", bstyle : "btn-primary", click : "doSomething('tata 1')"};
-    $scope.mytoolbarbtn2 = {icon : "fa fa-times", bstyle : "btn-danger", click : "doSomething('tata 2')"};
-    $scope.mytoolbarbtn3 = {icon : "fa fa-times", bstyle : "btn-warning", click : "doSomething('{{some_variable.some_property}}')"};
+    $scope.mytoolbarbtn1 = {icon : "fa fa-plus", bstyle : "btn-primary", click : "myFirstFunction('tata 1')"};
+    $scope.mytoolbarbtn2 = {icon : "fa fa-times", bstyle : "btn-danger", click : "mySecondFunction('tata 2')"};
 
 
-    $scope.some_variable = {
-        some_property : 'I am something !'
+    $scope.var_chelou = {
+        yoyo : 'tata la pute'
     };
 
-    $scope.doSomething = function(msg) {
-         alert('doSomething : ' + msg);   
+    $scope.doSomething = function() {
+         alert('doSomething');   
+    };
+    
+    $scope.myFirstFunction = function(msg) {
+         alert(msg + '!!! first function call!');   
+    };
+    
+    $scope.mySecondFunction = function(msg) {
+         alert(msg + '!!! second function call!');   
     };
 
 }])
 
 
 var myApp = angular.module('myApp', [
-'angular-toolbar',
-'myApp.ToolbarControllers',
+    'angular-toolbar',
+    'myApp.ToolbarControllers',
 ]);
 </script>
 

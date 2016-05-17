@@ -41,7 +41,7 @@ angular.module('angular-toolbar-directives', [])
             },
             restrict: 'AE',
             scope : {},
-            templateUrl : '../js/templates/toolbtn.html',
+            templateUrl : 'templates/toolbtn.html',
             controller: function($scope, $element, $rootScope)
             {
                 var ctrl = this;
@@ -181,7 +181,7 @@ angular.module('angular-toolbar-directives', [])
             },
             restrict: 'AE',
             scope : {},
-            templateUrl : '../js/templates/toolbarbtn.html',
+            templateUrl : 'templates/toolbarbtn.html',
             controller: function($scope, $element, $rootScope)
             {
                 var ctrl = this;
@@ -236,7 +236,7 @@ angular.module('angular-toolbar-directives', [])
             },
             restrict: 'AE',
             scope : {},
-            templateUrl : '../js/templates/toolbar.html',
+            templateUrl : 'templates/toolbar.html',
             controller: function($scope, $element, $rootScope)
             {
                 var ctrl = this;
