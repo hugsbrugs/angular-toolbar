@@ -1,4 +1,12 @@
-inspired from paulkinzett.github.io/toolbar/
+[Visit Demo on Github Pages](https://hugsbrugs.github.com/angular-toolbar)
+
+![alt text](https://github.com/hugsbrugs/angular-toolbar/img/angular-toolbar.png "Angular Toolbar Example")
+
+Build by [Hugo Maugey](https://hugo.maugey.fr "Webmaster Creation Site Web")
+
+## Install
+
+
 
 ##This module can be used as element or attribute
 ```html
